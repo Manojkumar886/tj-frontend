@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useState } from 'react'
+import { Create } from './tempvalues'
 
 export let OrderForm=()=>
 {
@@ -29,8 +30,9 @@ export let OrderForm=()=>
     }   
    const Register=()=>
    {
-    alert(orderdetails)
+    // alert(orderdetails)
     alert(" Your Order is Booked...!"+JSON.stringify(orderdetails))
+    Create(orderdetails);
    } 
 
    const Calcel=()=>
@@ -39,7 +41,7 @@ export let OrderForm=()=>
    }
     return(
         <>
-            <form className='form-group row justify-content-center'>
+            <div className='form-group row justify-content-center'>
                 <div className='col-lg-7 col-md-10 col-sm-12 '>
                     <h1 className='text-center'>New Order</h1>
                     <div>
@@ -71,14 +73,14 @@ export let OrderForm=()=>
                                 onChange={gettingvalues}
                                 value={orderdetails.orderno}/>
                     </div>
-                    <button type='submit' 
+                    <button 
                     className='btn btn-outline-primary col-12'
                     onClick={Register}>Submit</button>
-                    <button type='reset' 
+                    <button  
                     className='btn btn-outline-danger col-12 mt-3'
                     onClick={Calcel}>Cancel</button>
                 </div>
-            </form>
+            </div>
 
         
         </>
