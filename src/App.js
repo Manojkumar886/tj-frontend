@@ -10,6 +10,7 @@ import { Withcss } from "./usingcss";
 import { Myblog } from "./Nagivation";
 
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { OrderForm } from "./OrderForm";
 
 function App()
 {
@@ -17,14 +18,15 @@ function App()
 
     return(
         <>
-           <BrowserRouter>
+            <OrderForm/>
+           {/* <BrowserRouter>
            <Myblog/>
            <Routes>
                 <Route path='myhome' exact element={<Myevents/>} />
                 <Route path='mycontact' exact element={<Myternary/>} />
                 <Route path="https://www.w3schools.com/react/react_router.asp" exact element={<Other/>} />
            </Routes>
-           </BrowserRouter>
+           </BrowserRouter> */}
         </>
     )
 }
