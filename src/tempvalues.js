@@ -30,3 +30,21 @@ export const Listall=()=>
     // alert(JSON.stringify(OrderDetails))
     return OrderDetails;
 }
+
+export const Read=(index)=>
+{
+    return OrderDetails[index];
+    //OrderDetails[2]
+}
+
+
+export const Remove=(index)=>
+{
+    OrderDetails=OrderDetails.filter(
+        (data,ind)=>
+        {
+          return  ind!==index;
+        })
+
+        return OrderDetails;
+}

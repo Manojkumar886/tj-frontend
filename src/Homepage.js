@@ -1,14 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useState } from 'react'
-import { Listall } from './tempvalues';
+import { Listall, Remove } from './tempvalues';
 import { OrderForm } from './OrderForm';
+import { ReadingaPage } from './ReadPage';
 
 
 export let Homepage=()=>
 {
     const [createpage,setCreatepage]=useState(false);
+
+    const [readpage,setReadpage]=useState(false);
+    const[position,setPosition]=useState(0);
     
     const[temparray,setTemparray]=useState([]);
+    
 
     // hook no-2
     useEffect(
@@ -34,6 +39,18 @@ export let Homepage=()=>
                     </button>
                 </>
                 :
+                (readpage)?
+                <>
+                {/* //who is attributesname */}
+                    <ReadingaPage who={position} />  
+                    <button className=' btn btn-outline-secondary'onClick={()=>
+                    {
+                        setReadpage(false)
+                    }}>
+                        BACK
+                    </button>
+                </>
+                :
                 <>
                 <button className='btn btn-outline-info'
                 onClick={()=>
@@ -55,7 +72,7 @@ export let Homepage=()=>
                     </thead>
                     <tbody>
                         {
-                            temparray.map((data)=>
+                            temparray.map((data,index)=>
                                 <tr>
                                     <td>{data.customername}</td>
                                     <td>{data.customerplace}</td>
@@ -63,8 +80,17 @@ export let Homepage=()=>
                                     <td>{data.orderno}</td>
                                     <td>
                                         <button className='btn btn-outline-warning'>UPDATE</button>
-                                        <button className='btn btn-outline-secondary'>READ</button>
-                                        <button className='btn btn-outline-danger'>DELETE</button>
+                                        <button className='btn btn-outline-secondary'
+                                        onClick={()=>
+                                        {
+                                            setReadpage(true)
+                                            setPosition(index)
+                                        }}>READ</button>
+                                        <button className='btn btn-outline-danger'
+                                        onClick={()=>
+                                        {
+                                            setTemparray(Remove(index));
+                                        }}>DELETE</button>
                                     </td>
                                 </tr>
                             )
