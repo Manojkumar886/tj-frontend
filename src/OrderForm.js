@@ -42,7 +42,7 @@ export let OrderForm=()=>
     return(
         <>
             <div className='form-group row justify-content-center'>
-                <div className='col-lg-7 col-md-10 col-sm-12 '>
+                <div className='col-lg-7 col-md-10 col-sm-12 d-flex'>
                     <h1 className='text-center'>New Order</h1>
                     <div>
                         <label className='form-label'> Name</label>
