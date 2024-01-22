@@ -78,7 +78,7 @@ export let Homepage=()=>
                     OrderForm-BOOKING 
                 </button>
                 <div className='container'>
-                <table className='table-responsive-md table table-striped table-info'>
+                <table className='table-responsive-md table table-striped table-primary'>
                     <thead>
                         <tr>
                             <th>customername</th>
